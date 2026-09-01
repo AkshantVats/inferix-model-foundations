@@ -15,12 +15,14 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = ["pytest>=8.3.0"]
+hf = ["transformers>=4.40.0"]
 registry = ["model-registry @ file:../model-registry"]
 
 [project.scripts]
 m0-train = "inferix_model_foundations.train:main"
 m0-sample = "inferix_model_foundations.sample:main"
 m0-inspect = "inferix_model_foundations.inspect:main"
+m0b-inspect = "inferix_model_foundations.open_weights_cli:main"
 
 [tool.setuptools.packages.find]
 where = ["."]

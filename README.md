@@ -8,7 +8,7 @@
 | Build plan | [`../master-plan-for-agents/models/foundations/BUILD_PLAN.md`](../master-plan-for-agents/models/foundations/BUILD_PLAN.md) |
 | Overview | [`../master-plan-for-agents/models/foundations/OVERVIEW.md`](../master-plan-for-agents/models/foundations/OVERVIEW.md) |
 | Quality bar | [`../master-plan-for-agents/QUALITY_BAR.md`](../master-plan-for-agents/QUALITY_BAR.md) |
-| Phase | **M0a** (nanoGPT) — M0b open dissect still pending |
+| Phase | **M0a** ✅ + **M0b** ✅ (nanoGPT + open dissect) |
 | Era | **A only** — no Inferix gate, not a RouteIQ `model_id` |
 
 ## What this is
@@ -41,6 +41,9 @@ m0-train
 
 # Day 4 — reload checkpoint and sample
 m0-sample --prompt "ROMEO:" --tokens 200
+
+# M0b — dissect tiny HF open weights (sshleifer/tiny-gpt2)
+m0b-inspect
 
 # pytest smoke (dry-run: 5 steps, real backprop)
 pytest -v
@@ -77,7 +80,9 @@ inferix_model_foundations/
   train.py       training loop + manifest
   sample.py      reload + generate
   inspect.py     Day 1 smoke
+  open_weights.py  M0b HF dissect library
 checkpoints/m0-demo/   artifact output (gitignored)
+NOTES.md         M0b architecture comparison
 tests/                 pytest smoke
 ```
 
