@@ -1,0 +1,34 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "inferix-model-foundations"
+version = "0.1.0"
+description = "M0 foundations — Karpathy-style nanoGPT for Inferix Agent Ecosystem Era A"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "torch>=2.2.0",
+    "requests>=2.31.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.3.0"]
+registry = ["model-registry @ file:../model-registry"]
+
+[project.scripts]
+m0-train = "inferix_model_foundations.train:main"
+m0-sample = "inferix_model_foundations.sample:main"
+m0-inspect = "inferix_model_foundations.inspect:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["inferix_model_foundations*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
