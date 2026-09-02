@@ -6,7 +6,6 @@ from pathlib import Path
 import pytest
 import torch
 
-from inferix_model_foundations.paths import CHECKPOINT_DIR, CKPT_PATH, MANIFEST_PATH
 from inferix_model_foundations.sample import generate_text, load_model
 from inferix_model_foundations.train import TrainConfig, pick_device, train
 
@@ -59,7 +58,7 @@ def test_sample_after_reload(ckpt_dir: Path) -> None:
     assert len(text) > 1
 
     device = pick_device()
-    model, stoi, itos, payload = load_model(ckpt_path, device)
+    model, _stoi, _itos, payload = load_model(ckpt_path, device)
     assert model.param_count() > 0
     assert payload["step"] >= 1
 

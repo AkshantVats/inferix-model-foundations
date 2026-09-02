@@ -14,7 +14,7 @@ import torch
 from inferix_model_foundations.config import GPTConfig, TrainConfig
 from inferix_model_foundations.data import get_batch, load_dataset
 from inferix_model_foundations.model import GPT
-from inferix_model_foundations.paths import CHECKPOINT_DIR, CKPT_PATH, LOG_PATH, MANIFEST_PATH
+from inferix_model_foundations.paths import CKPT_PATH, LOG_PATH, MANIFEST_PATH
 
 
 def pick_device() -> torch.device:
